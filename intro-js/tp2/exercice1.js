@@ -1,51 +1,63 @@
 
-function nombreAlea (){
-    let z = 0;
-    z = Math.trunc(Math.random()*11);
-    console.log(z); 
-    return z;
-}
 
 
-let a = 5;
-let y = nombreAlea();
-
-function decoChance(){
-    if (a != 0){
-        a--;
-    } else {
-        alert("perdu");
-    } 
-    console.log(a);
-    return a;
-    
-}
-
-window.onload = function(){
-    decompte();
-}
-
-
-function decompte(){
+function init(){
+    let a = 5;
+    let y = nombreAlea();
     var input = document.querySelector('#deco');
-    input.onclick = function(){ 
-        var span = document.querySelector('#compt');
-        decoChance();
-        span.textContent = a;
 
-        let x = document.getElementById("#test_nombre")
-        var input = document.querySelector('#test_nombre');
-        
-        if (x < y){
-            alert("plus grand");
-        }
-        if (x > y){
-            alert("plus petit");
-        } else if(x == y) {
-        } alert("gagné");
+    function nombreAlea (){
+        let z = 0;
+        z = Math.trunc(Math.random()*11);
+        console.log('nombre alea ' + z); 
+        return z;
     }
+
+
+    function decoChance(){
+        if (a != -2){
+            a--;
+        }
+        console.log(a);
+        return a;
+        
+    }
+
+    window.onload = function(){
+        main();
+    }
+
+
+    function main(){
+        
+        input.onclick = function(){ 
+            var span = document.querySelector('#compt');
+            span.textContent = a;
+            decoChance();
+            if (a == -1){
+                alert("perdu");
+                a = 5
+                y = nombreAlea();
+            }
+            
+
+            var x = document.getElementById("test_nombre").value;
+            console.log(x);
     
+            if ( x > y){
+                alert("trop grand")
+            }
+            if ( x < y){
+                alert("trop petit")
+            }
+            if ( x == y){
+                alert(" BINGOOOOOOOOOOO");
+                a = 5
+                y = nombreAlea();
+            }
+        }
+    
+    }
+
 }
-
-
-
+init();
