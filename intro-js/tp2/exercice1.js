@@ -43,18 +43,25 @@ function init(){
 
             var x = document.getElementById("test_nombre").value;
             console.log(x);
+            console.log('1 '+ typeof( x));
+            var x = parseInt(x,10);
+            console.log('2 ' + typeof( x ));
+
+
+            //if ( typeof(x) != Number){
     
-            if ( x > y){
-                alert("trop grand")
-            }
-            if ( x < y){
-                alert("trop petit")
-            }
-            if ( x == y){
-                alert(" BINGOOOOOOOOOOO");
-                a = 5
-                y = nombreAlea();
-            }
+                if ( x > y){
+                    alert("trop grand")
+                }
+                if ( x < y){
+                    alert("trop petit")
+                }
+                if ( x == y){
+                    alert(" BINGOOOOOOOOOOO");
+                    a = 5
+                    y = nombreAlea();
+                }
+            //}else { alert("taper un nombre")};
         }
     
     }
