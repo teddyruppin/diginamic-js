@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title> tp express</title>
+</head>
+<body>
+
+    <p> Bienvenue sur Express Book </p>
+    <ul>
+        <% for(var i = 0; i < name.length; i++) { %>
+            <li><a href="/profile/<%= name[i] %>"><%= name[i] %></a></li>
+            <% } %>
+    </ul>
+
+</body>
+</html>
