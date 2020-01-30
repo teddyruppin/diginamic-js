@@ -26,6 +26,8 @@ class Planet{
         if (isNaN(tab[population])==true){  
             var total = tab.reduce((a,b) => a +  parseInt(b._population,10) ,0);
         }
+    static countPlanetPopulation(tab){        
+        var total = tab.reduce((a, b)=> a + b._population,0);
         console.log(total);
         return total;
     }
@@ -35,3 +37,4 @@ module.exports.Planet = Planet;
 // var total = tab.reduce((a,b) => a +  parseInt(b._population,10) ,0);
 // var total = tab.reduce((a, b)=> a + b._population,0);
 
+module.exports.Planet = Planet;
