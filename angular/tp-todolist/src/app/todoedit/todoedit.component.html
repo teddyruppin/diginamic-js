@@ -7,7 +7,7 @@
 </div>
 
 <div class="container">
-    <form #todoForm="ngForm" (click)="addTodo()"> <!-- Gérer ici l'appel à la méthode addTodo() à la soumission du formulaire -->
+    <form #todoForm="ngForm" (ngSubmit)="addTodo()"> <!-- Gérer ici l'appel à la méthode addTodo() à la soumission du formulaire -->
         <input type="hidden" name="idInput" id="idInput" [(ngModel)]="todo.id"> 
         <div class="form-group">
             <label for="labelInput">Label</label>

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Todo, Todos } from '../todo.model';
 import { TodoListServiceService } from '../todo-list-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'td-todolist',
@@ -11,7 +12,7 @@ export class TodolistComponent implements OnInit {
 
   todolist: Todos;
 
-  constructor(private todolistservice: TodoListServiceService) {
+  constructor(private todolistservice: TodoListServiceService, private route: Router) {
 
    }
 
@@ -19,4 +20,11 @@ export class TodolistComponent implements OnInit {
     this.todolist = this.todolistservice.getAll();
   }
 
+  editTodo(id: number){
+    this.route.navigate(['/edit/' + id]);
+  }
+
+  deleteTodo(id: number){
+    this.todolistservice.delete(id);
+  }
 }

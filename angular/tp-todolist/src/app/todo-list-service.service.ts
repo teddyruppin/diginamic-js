@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Todo, Todos } from './todo.model';
+import { element } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -17,16 +18,18 @@ export class TodoListServiceService {
     this.todolist.push(todo);
   }
 
-
-
-
-
   getAll() {
     return this.todolist;
   }
 
   get(id: number) {
-    return Todo[id];
+    let todo1: Todo;
+    this.todolist.filter(element => {
+      if (element.id === id){
+        todo1 = element;
+      }
+    });
+    return todo1;
   }
 
   getNewId() {
@@ -36,18 +39,20 @@ export class TodoListServiceService {
   }
 
   add(todo: Todo) {
-    const t = new Todo(this.getNewId(), todo.label);
-    this.todolist.push(t);
+    todo.id = this.getNewId();
+    this.todolist.push(todo);
   }
 
   edit(todo: Todo) {
+    this.get(todo.id).label = todo.label;
   }
 
   delete(id: number) {
-    delete Todo[id];
+    for ( let i = 0; i < this.todolist.length; i++){
+      if (this.todolist[i].id == id){
+        this.todolist.splice(i);
+      }
+    }
   }
-
-  
-}  
-
+}
 

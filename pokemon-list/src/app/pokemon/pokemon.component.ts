@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 // import { PokemonModel } from './pokemon.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonComponent implements OnInit {
 
-  // private currentPokemon: PokemonModel;
+  @Input() pokemons;
   constructor() { }
 
   ngOnInit() {

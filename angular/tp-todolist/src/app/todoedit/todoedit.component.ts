@@ -20,17 +20,16 @@ export class TodoeditComponent implements OnInit {
     if (this.actrout.snapshot.paramMap.get('id') == null) {
         this.todo = new Todo(0, '');
     } else {
-      console.log('edit pas fait');
-        //this.todolistserv.get(id) =
+        this.todo = this.todolistserv.get(parseInt(this.actrout.snapshot.paramMap.get('id')));
     }
   }
 
   addTodo(id: number) {
-    if (id === 0) {
+    if (this.todo.id === 0) {
+      this.todo.id = this.todolistserv.getNewId();
       this.todolistserv.add(this.todo);
-    } else {
-      this.todolistserv.edit(this.todo);
     }
+    this.router.navigate(['/list']);
   }
 
 }

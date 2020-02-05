@@ -19,7 +19,7 @@ export class PokedexComponent implements OnInit {
     data.forEach(element => {
     let specie = element.specie;
     let description = element.description;
-    let type = element.type;
+    let type = element.types;
     let pokemon = new PokemonModel(specie, description, type);
     this.pokemons.push(pokemon);
   });
